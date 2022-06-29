@@ -8,14 +8,14 @@ TOPAS is an iterative approach which aims at connecting the largest number of se
 
 TOPAS is implemented in R (≥4.1), and it was tested in a version-controlled conda environment. 
 
-Download this repository and either execute A or B:
+Clone the TOPAS repository and either execute A or B.
 
-A.  follow the instructions to install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and then execute the following to generate a conda environment with all you need to run TOPAS:
+A.  Follow the instructions to install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and then execute the following to generate a conda environment with all you need to run TOPAS:
 ```
 conda env create -f environment.yml
 ```
 
-B.  manually install the following libraries inside a R (≥4.1) environment:
+B.  Manually install the following libraries inside a R (≥4.1) environment:
 
   * r-tidyverse=1.3.1
   * r-igraph=1.2.11
