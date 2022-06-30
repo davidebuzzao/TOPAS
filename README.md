@@ -25,9 +25,15 @@ B.  Manually install the following libraries inside a R (≥4.1) environment:
   * r-dosnow=1.0.20
   * r-foreach=1.5.1
 
+
 ### Step 2: Program Execution
 
-You can copy this R snippet into your local computer to produce a disease module as an example. You may want to change the path to your local repository.
+If you have created a new conda environment, make sure to activate it before running TOPAS. 
+```
+conda activate topas
+```
+
+You can copy this R snippet into your local computer to produce a disease module as an example. You may want to set the path to match the working directory where you cloned the TOPAS repository.
 
 ```{r}
 #!/usr/bin/Rscript
@@ -37,12 +43,12 @@ source('src/TOPAS.R')
 
 ## Load network
 network_example = 
-  readr::read_tsv(paste0('example/FunCoup5_pfc80.tsv.gz'), 
+  readr::read_tsv(file = 'example/FunCoup5_pfc80.tsv.gz', 
                   col_names = c('V1','V2'), 
                   col_types = 'cc')
 ## Seed gene set
 seeds_example = 
-  readr::read_table('example/adrenal_gland_diseases.txt', 
+  readr::read_table(file = 'example/adrenal_gland_diseases.txt', 
                     col_names = 'V',
                     col_types = 'c')
 
@@ -53,9 +59,17 @@ module_example =
     expansion_steps = 2,
     cores = 4
     )
+
+readr::write_tsv(module_example, file = 'example/TOPAS_adrenal_gland_diseases.tsv')
+```
+
+To execute the R snippet, run from the terminal:
+```
+Rscript snippet.R
 ```
 
 *NOTE*: TOPAS is only designed to process undirected networks!
+
 
 ### Contacts ###
 
