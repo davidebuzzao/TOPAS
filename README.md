@@ -8,27 +8,14 @@ TOPAS is an iterative approach which aims at connecting the largest number of se
 
 TOPAS is implemented in R (≥4.1), and it was tested in a version-controlled conda environment. 
 
-Clone the TOPAS repository and either execute A or B.
-
-A.  Follow the instructions to install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and then execute the following to generate a conda environment with all you need to run TOPAS:
+Clone the TOPAS repository and follow the instructions to install [Miniconda](https://docs.conda.io/en/latest/miniconda.html) and then execute the following to generate a conda environment with all you need to run TOPAS:
 ```
 conda env create -f environment.yml
 ```
 
-B.  Manually install the following libraries inside a R (≥4.1) environment:
-
-  * r-tidyverse=1.3.1
-  * r-igraph=1.2.11
-  * r-dnet=1.1.7
-  * bioconductor-biocparallel=1.28.0
-  * r-r.utils=2.11.0
-  * r-dosnow=1.0.20
-  * r-foreach=1.5.1
-
-
 ### Step 2: Program Execution
 
-If you have created a new conda environment, make sure to activate it before running TOPAS. 
+Once you have created a new conda environment, make sure to activate it before running TOPAS. 
 ```
 conda activate topas
 ```
@@ -38,7 +25,7 @@ You can copy this R snippet into your local computer to produce a disease module
 ```{r}
 #!/usr/bin/Rscript
 
-setwd('~/topas') 
+setwd('~/PhD/topas') 
 source('src/TOPAS.R')
 
 ## Load network
@@ -61,11 +48,6 @@ module_example =
     )
 
 readr::write_tsv(module_example, file = 'example/TOPAS_adrenal_gland_diseases.tsv')
-```
-
-To execute the R snippet, run from the terminal:
-```
-Rscript snippet.R
 ```
 
 *NOTE*: TOPAS is only designed to process undirected networks!
