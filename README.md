@@ -25,7 +25,7 @@ You can copy this R snippet into your local computer to produce a disease module
 ```{r}
 #!/usr/bin/Rscript
 
-setwd('~/PhD/topas') 
+setwd('~/topas') 
 source('src/TOPAS.R')
 
 ## Load network

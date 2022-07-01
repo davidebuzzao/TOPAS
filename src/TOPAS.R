@@ -104,10 +104,12 @@ TOPAS = function(network,
     parallel::stopCluster(cl)
     
   } else {
+    ## set up progress bar
+    op = pbapply::pboptions(type = "txt", style = 3, char = "=")
     connectors = 
       unique(
         unlist(
-          lapply(
+          pbapply::pblapply(
             seeds,
             .sp_compute, graph_lcc
           )
