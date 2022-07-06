@@ -87,35 +87,19 @@ TOPAS = function(network,
     ) 
   }
   
-  ## Proceed with computation of shortest path, 
-  ## either on # cores, or on 1 core
-  if (cores>1){
-    ## Set up parallelization
-    pb = utils::txtProgressBar(min=0, max=length(seeds), style = 3)
-    progress = function(n) utils::setTxtProgressBar(pb, n)
-    opts = list(progress = progress)
-    cl = parallel::makeCluster(cores)
-    doSNOW::registerDoSNOW(cl)
-    boot = foreach::foreach(i = seeds, .options.snow = opts)
-    connectors = unique(
-      unlist(
-        foreach::`%dopar%`(boot, .sp_compute(i, graph_lcc)))
-    )
-    parallel::stopCluster(cl)
-    
-  } else {
-    ## set up progress bar
-    op = pbapply::pboptions(type = "txt", style = 3, char = "=")
-    connectors = 
-      unique(
-        unlist(
-          pbapply::pblapply(
-            seeds,
-            .sp_compute, graph_lcc
-          )
-        )
-      )
-  }
+  ## Proceed with computation of shortest path
+  ## Set up parallelization, either on 1 or more cores
+  pb = utils::txtProgressBar(min=0, max=length(seeds), style = 3)
+  progress = function(n) utils::setTxtProgressBar(pb, n)
+  opts = list(progress = progress)
+  cl = parallel::makeCluster(cores)
+  doSNOW::registerDoSNOW(cl)
+  boot = foreach::foreach(i = seeds, .options.snow = opts)
+  connectors = unique(
+    unlist(
+      foreach::`%dopar%`(boot, .sp_compute(i, graph_lcc)))
+  )
+  parallel::stopCluster(cl)
   
   ## Extract a subgraph composed of seeds and potential connectors
   seeds_graph = 

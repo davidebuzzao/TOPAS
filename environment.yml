@@ -10,4 +10,3 @@ dependencies:
   - r-igraph=1.2.11
   - r-dnet=1.1.7
   - r-dosnow=1.0.20
-  - r-pbapply=1.5_0
