@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="TOPAS_logo.png" />
+</p>
+
 TOPAS (TOP-down Attachment of Seeds) is an iterative approach which aims at connecting the largest number of seed nodes in a top-down fashion through connectors which guarantee the highest flow of a Random Walk with Restart in a network of functional associations.
 
 * Version 1.0
