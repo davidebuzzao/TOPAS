@@ -1,7 +1,7 @@
 <p align="center">
   <img src="TOPAS_logo.png"
   alt="drawing" 
-  style="width:30%;float: right;"
+  style="float: right;"
   />
 </p>
 
