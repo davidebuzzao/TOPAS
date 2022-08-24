@@ -58,6 +58,37 @@ readr::write_tsv(module_example, file = 'example/TOPAS_adrenal_gland_diseases.ts
 *NOTE*: TOPAS is only designed to process undirected networks!
 
 
+### The benchmark
+
+In order to reproduce all figures in the study, follow the instructions below. 
+
+1. Unzip the file *benchmarkData.zip* and access the folder *benchmarkData*:
+
+```
+ unzip benchmarkData.zip
+ cd benchmarkData
+```
+
+2. Execute the following to generate a conda environment with all you need to execute the notebooks:
+
+```
+conda env create -f environment_benchmark.yml
+```
+
+3. Once you have created a new conda environment, make sure to activate it before executing the notebooks. 
+
+```
+conda activate topas_benchmark
+```
+
+4. To execute any notebook from command line, enter the folder dedicated to one specific session of the study and render the notebook called *FiguresGenerator.Rmd*.
+
+```
+## For example
+cd AssessmentOfSRR\&SCR
+Rscript -e "rmarkdown::render('FiguresGenerator.Rmd')"
+```
+
 ### Contacts ###
 
 * Davide Buzzao (davide.buzzao@scilifelab.se)
