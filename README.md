@@ -55,10 +55,10 @@ module_example =
 readr::write_tsv(module_example, file = 'example/TOPAS_adrenal_gland_diseases.tsv')
 ```
 
-*NOTE*: TOPAS is only designed to process undirected networks!
+**NOTE**: TOPAS is only designed to process undirected networks!
 
 
-### The benchmark
+### Reproduce the benchmark
 
 In order to reproduce all figures in the study, follow the instructions below. 
 
@@ -88,6 +88,8 @@ conda activate topas_benchmark
 cd AssessmentOfSRR\&SCR
 Rscript -e "rmarkdown::render('FiguresGenerator.Rmd')"
 ```
+
+**NOTE**: All figures are pre-generated and stored in dedicated folders under *figures/* and displayed in the *html* files. However, you are welcome to reproduce the results executing the notebooks.
 
 ### Contacts ###
 
